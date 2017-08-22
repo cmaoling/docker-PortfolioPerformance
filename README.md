@@ -2,7 +2,7 @@
 Dockerfile expects Makefile4Docker Environment
 
 This repository is intended to start http://www.portfolio-performance.info/portfolio/ in a Docker environment
-Special cudos to Andreas Buchen et. al. for this great program
+Special kudos to Andreas Buchen et. al. for this great program
 
 wget http://www.portfolio-performance.info/portfolio/images/logo.svg
 
