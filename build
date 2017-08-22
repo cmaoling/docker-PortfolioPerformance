@@ -1,0 +1,27 @@
+#/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+echo "DIR: "$DIR
+echo "pwd: "`pwd`
+productpath=$1
+cd $DIR
+if [[ -z $productpath ]]
+then
+	productpath=`cat .product-path 2>/dev/null`
+	if [[ -n $productpath ]]
+	then	
+		echo "path (file): "${productpath}
+	fi
+else
+	echo "path (parameter): "${productpath}
+fi
+if [[ -n $productpath ]]
+then
+	productfile=`eval "find ${productpath} -name '*linux*x86_64*.tar.gz'"`
+	echo "file: "${productfile}
+	cp ${productfile} ./PortfolioPerformance-linux.gtk.x86_64.tar.gz
+	make build
+else
+	echo "path neither as .product-path file nor as option provided. No need to build anything."
+fi
+cd $pwd
+$DIR/start
