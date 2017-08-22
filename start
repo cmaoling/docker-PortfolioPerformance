@@ -2,8 +2,9 @@
 #based on https://github.com/fgrehm/docker-netbeans
 VERSION=latest
 DISPLAY=:0
-echo "$0"
-TOOL="${0%/*}"
+REAL=`readlink -f $0`
+echo "Call: $REAL"
+TOOL="${REAL%/*}"
 TOOL="${TOOL##*/}"
 TOOL=`echo $TOOL | tr '[:upper:]' '[:lower:]'`
 GIT=`which git`
